@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <h1 class="form-signin-heading">Your profile</h1>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Email</label>
+            <p class="form-control-static">{{ details?.email }}</p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Full Name</label>
+            <p class="form-control-static col-sm-3" (dblclick)="editField('name')" [hidden]="edit.name">
+              {{ details?.name }}
+            </p>
+            <p class="form-control-static col-sm-6" [hidden]="!edit.name">
+              <input type="text" class="form-control input-sm" id="name" required [(ngModel)]="formModel.name" #name name="name">
+              <span (click)="editField('name')" class="btn btn-default btn-sm"> X </span>
+              <span (click)="saveField('name', name.value)" class="btn btn-primary btn-sm"> ✓ </span>
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Skills</label>
+            <p class="form-control-static col-sm-3" (dblclick)="editField('skills')" [hidden]="edit.skills">
+              {{ details?.skills }}
+            </p>
+            <p class="form-control-static col-sm-6" [hidden]="!edit.skills">
+              <input type="text" class="form-control input-sm" id="skills" required [(ngModel)]="formModel.skills" #skills name="skills">
+              <span (click)="editField('skills')" class="btn btn-default btn-sm"> X </span>
+              <span (click)="saveField('skills', skills.value)" class="btn btn-primary btn-sm"> ✓ </span>
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Age</label>
+            <p class="form-control-static col-sm-3" (dblclick)="editField('age')" [hidden]="edit.age">
+              {{ details?.age }}
+            </p>
+            <p class="form-control-static col-sm-6" [hidden]="!edit.age">
+              <input type="number" class="form-control input-sm" id="age" required [(ngModel)]="formModel.age" #age name="age">
+              <span (click)="editField('age')" class="btn btn-default btn-sm"> X </span>
+              <span (click)="saveField('age', age.value)" class="btn btn-primary btn-sm"> ✓ </span>
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Default Image</label>
+            <p class="form-control-static col-sm-3" >
+              {{details?.defaultImage == 'image1' ? 'Image 1 ' : 'Image 2'}}
+              {{image2Path}}
+              {{image1Path}}
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Image 1</label>
+            <p class="form-control-static col-sm-3" >
+              <img [src]="image1Path">
+            </p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Image 2</label>
+            <p class="form-control-static col-sm-3" >
+              <!-- {{ details?.age }} -->
+              <img [src]="image2Path">
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

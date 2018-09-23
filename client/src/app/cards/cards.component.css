@@ -1,0 +1,44 @@
+    .card{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 5em;
+    height: 7em;
+    margin: .3em;
+    background-color: #f6f6f6;
+    font-family: Times, serif;
+    font-weight: bold;
+    border-width: .07em;
+    border-style: solid;
+    border-color: #666;
+    border-radius: 0.3em;
+    box-shadow: 0.07em 0.07em 0.07em 0.07em rgba(20, 20, 20, 0.4);
+    text-align: center;
+}
+
+.bin-row{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.bin{
+    height: 560px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.restart-div{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <h1 class="form-signin-heading">  Card Game </h1>
+      <br>
+      <h3>Please drop the cards in the corresponging bins</h3>
+      <br>
+      <div [hidden]="!showRestartBtn" class="text-center restart-div">
+        Game finished. Do you want to restart?
+        <br><br>
+        <div class="btn btn-primary" (click)="restartGame()"> Restart Game </div>
+      </div>
+
+      <div class="card" draggable="true" (dragstart)="drag($event)" *ngFor="let card of cards" id="drag{{card}}">
+        <!-- <div id="drag{{card}}" draggable="true" (dragstart)="drag($event)"> -->
+          <div> {{numberToCardDetail[card].typeDescriptive}}  </div>
+          <div> {{numberToCardDetail[card].name}} </div>
+          <!-- <img src="https://images.pexels.com/photos/658687/pexels-photo-658687.jpeg?auto=compress&cs=tinysrgb&h=350" draggable="true"
+            (dragstart)="drag($event)" id="drag1" width="88" height="31"> -->
+        <!-- </div> -->
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row bin-row">
+    <div class="col-mf-12 alert alert-danger" [hidden]="!showError"> Wrong! Please try again </div>
+    <div  class="col-md-3">Spade Bin</div>
+    <div  class="col-md-3">Heart Bin</div>
+    <div  class="col-md-3">Diamond Bin</div>
+    <div  class="col-md-3">Club Bin</div>
+
+    <div (drop)="drop($event, 0)" (dragover)="allowDrop($event)" class="col-md-3 bin">
+    </div>
+    <div (drop)="drop($event, 1)" (dragover)="allowDrop($event)" class="col-md-3 bin">
+    </div>
+    <div (drop)="drop($event, 2)" (dragover)="allowDrop($event)" class="col-md-3 bin">
+    </div>
+    <div (drop)="drop($event, 3)" (dragover)="allowDrop($event)" class="col-md-3 bin">
+    </div>
+  </div>
+
+
+</div>
